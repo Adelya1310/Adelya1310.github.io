@@ -59,8 +59,8 @@
 
 
     <div style="position: fixed; top: 100px;right: 25px;">
-    	<input onclick="Up()" type="submit" name="" value="вверх"><br />
-    	<input onclick="Down()" type="submit" name="" value="вниз">
+    	<input class="btn" id="up" onclick="Up()" type="submit" name="" value="вверх" style="width: 70px;margin-bottom: 4px;" disabled=""><br />
+    	<input class="btn" id="down" onclick="Down()" type="submit" name="" value="вниз" style="width: 70px; margin-bottom: 4px;" >
     </div>
 
     <script type="text/javascript">
@@ -70,14 +70,29 @@
     var elements=document.getElementsByClassName("view")
     	
     	function Up(){
+
         position -= 1; 
-        if(position < 0) position = elements.length - 1;
+         document.getElementById("down").disabled = false;
+
+          if (position == 0){
+          document.getElementById("up").disabled = true;
+          elements[position].scrollIntoView();
+            return;
+         }
+
         elements[position].scrollIntoView();
+        
       }
 
-      function Down(){
+  function Down(){
         position += 1;
-         if(position >= elements.length) position = 0;
+        document.getElementById("up").disabled = false;
+
+         if(position == elements.length - 1) {
+          document.getElementById("down").disabled = true;
+          elements[position].scrollIntoView();
+          return;
+         }
          elements[position].scrollIntoView()
       }
 
