@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="resources/favicon.ico">
+    <title>Starter Template for Bootstrap</title>
+    <link href="resources/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="resources/starter-template.css" rel="stylesheet">
+    <script src="resources/assets/js/ie-emulation-modes-warning.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Аделя Закирова</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#portfolio">Портфолио</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#samples">Мои работы</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+    <div style="position: fixed; top: 100px;right: 25px;">
+    	<input class="btn" id="up" onclick="Up()" type="submit" name="" value="вверх" style="width: 70px;margin-bottom: 4px;" disabled=""><br />
+    	<input class="btn" id="down" onclick="Down()" type="submit" name="" value="вниз" style="width: 70px; margin-bottom: 4px;" >
+    </div>
+
+    <script type="text/javascript">
+
+      var position = 0;
+
+      var elements=document.getElementsByClassName("view")
+
+      function Up(){
+        var old_menu_element = document.querySelector(".nav li:nth-child(" + (position + 1) + "n)")
+        old_menu_element.classList.remove("active");
+
+        position -= 1;
+        document.getElementById("down").disabled = false;
+
+        if (position == 0){
+          document.getElementById("up").disabled = true;
+          elements[position].scrollIntoView();
+          ChangeMenuPosition(position + 1);
+          return;
+         }
+
+        elements[position].scrollIntoView();
+        ChangeMenuPosition(position + 1);
+      }
+
+      function Down(){
+        var old_menu_element = document.querySelector(".nav li:nth-child(" + (position + 1) + "n)")
+        old_menu_element.classList.remove("active");
+
+        position += 1;
+        document.getElementById("up").disabled = false;
+
+        if(position == elements.length - 1) {
+          document.getElementById("down").disabled = true;
+          elements[position].scrollIntoView();
+          ChangeMenuPosition(position + 1);
+          return;
+         }
+
+        elements[position].scrollIntoView()
+        ChangeMenuPosition(position + 1);
+      }
+
+      function ChangeMenuPosition(menuEl){
+        var new_menu_element = document.querySelector(".nav li:nth-child(" + menuEl + "n)")
+        new_menu_element.className += "active"
+      }
+    </script>
+
+
+
+
+<section class="view" id="portfolio" style="height: 100vh; padding-top: 45px;">
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Портфолио</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </div><!-- /.container -->
+
+</section>
+
+<section class="view" id="skills" style="height: 100vh; padding-top: 45px;">
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Навыки или что я умею</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </div><!-- /.container -->
+</section>
+
+<section class="view" id="samples" style="height: 100vh;  padding-top: 45px;">
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Примеры работ</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </div><!-- /.container -->
+</section>
+
+<section class="view" id="contacts" style="height: 100vh;  padding-top: 45px;">
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Контакты</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      </div>
+
+    </div><!-- /.container -->
+</section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="resources/dist/js/bootstrap.min.js"></script>
+    <script src="resources/assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
