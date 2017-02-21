@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -28,122 +28,334 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#portfolio">Портфолио</a></li>
-            <li><a href="#skills">Навыки</a></li>
-            <li><a href="#samples">Мои работы</a></li>
-            <li><a href="#contacts">Контакты</a></li>
+            <li class="active"><a href="#portfolio" onclick="changeViewAndState(0);">Портфолио</a></li>
+            <li><a href="#skills" onclick="changeViewAndState(1); ">Навыки</a></li>
+            <li><a href="#samples" onclick="changeViewAndState(2);">Мои работ</a></li>
+            <li><a href="#contacts" onclick="changeViewAndState(3);">Калькулятор</a></li>
+            <li><a href="#contacts" onclick="changeViewAndState(4);">Контакты</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
-
 
     <div style="position: fixed; top: 100px;right: 25px;">
     	<input class="btn" id="up" onclick="Up()" type="submit" name="" value="вверх" style="width: 70px;margin-bottom: 4px;" disabled=""><br />
     	<input class="btn" id="down" onclick="Down()" type="submit" name="" value="вниз" style="width: 70px; margin-bottom: 4px;" >
     </div>
 
-    <script type="text/javascript">
+    <section class="view" id="portfolio" style="height: 100vh;">
+        <div class="container">
+          <div class="starter-template">
+            <h1>Портфолио</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+          </div>
+        </div>
+    </section>
 
-      var position = 0;
+    <section class="view pad" id="skills" style="height: 100vh;">
+        <div class="container">
+          <div class="starter-template">
+            <h1>Навыки или что я умею</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+          </div>
+        </div>
+    </section>
 
-      var elements=document.getElementsByClassName("view")
+    <section class="view pad" id="samples" style="height: 100vh;">
+        <div class="container">
+          <div class="starter-template">
+            <h1>Примеры работ</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+          </div>
+        </div>
+    </section>
 
-      function Up(){
-        var old_menu_element = document.querySelector(".nav li:nth-child(" + (position + 1) + "n)")
-        old_menu_element.classList.remove("active");
+    <section class="view pad" id="calc" style="height: 100vh;">
+        <div class="container">
+          <div class="starter-template">
+            <h1>Калькулятор</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            <div class="main">
 
-        position -= 1;
-        document.getElementById("down").disabled = false;
+              <div class="filters">
+                <ul id="filters-list">
+                  <!--
+                  <li>
+                    <input checked="false" type="checkbox" value="landing-page">
+                    <label>Landing Page</label>
+                  </li>
+                  <li>
+                    <input checked="false" type="checkbox" value="blog">
+                    <label>Блог</label>
+                  </li>
+                  <li>
+                    <input checked="false" type="checkbox" value="site-cart">
+                    <label>Визитка</label>
+                  </li>
+                  <li>
+                    <input checked="false" type="checkbox" value="other">
+                    <label>Разное</label>
+                  </li>
+                  -->
+                </ul>
 
-        if (position == 0){
-          document.getElementById("up").disabled = true;
-          elements[position].scrollIntoView();
-          ChangeMenuPosition(position + 1);
-          return;
-         }
+              </div>
 
-        elements[position].scrollIntoView();
-        ChangeMenuPosition(position + 1);
+              <div class="services">
+                <div class="products">
+                  <ul id="products-list">
+
+                  </ul>
+                </div>
+
+                <div class="order">
+
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="view pad" id="contacts" style="height: 100vh;">
+        <div class="container">
+          <div class="starter-template">
+            <h1>Контакты</h1>
+            <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+          </div>
+        </div>
+    </section>
+
+    <script>
+      var products = [
+        {
+          "name":"верстка",
+          "price": 2500,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": true
+            },
+            {
+              "name": "blog",
+              "included": true
+            },
+            {
+              "name": "site-cart",
+              "included": true
+            },
+            {
+              "name": "other",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name":"роли",
+          "price": 1000,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": false
+            },
+            {
+              "name": "blog",
+              "included": true
+            },
+            {
+              "name": "site-cart",
+              "included": false
+            },
+            {
+              "name": "other",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name":"социальные системы",
+          "price": 1500,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": true
+            },
+            {
+              "name": "blog",
+              "included": true
+            },
+            {
+              "name": "site-cart",
+              "included": true
+            },
+            {
+              "name": "other",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name":"галерея",
+          "price": 500,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": true
+            },
+            {
+              "name": "blog",
+              "included": false
+            },
+            {
+              "name": "site-cart",
+              "included": false
+            },
+            {
+              "name": "other",
+              "included": true
+            }
+          ]
+        },
+        {
+          "name":"заглушка",
+          "price": 1500,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": true
+            },
+            {
+              "name": "blog",
+              "included": false
+            },
+            {
+              "name": "site-cart",
+              "included": false
+            },
+            {
+              "name": "other",
+              "included": false
+            }
+          ]
+        },
+        {
+          "name":"метрика",
+          "price": 800,
+          "categories": [
+            {
+              "name": "landing-page",
+              "included": false
+
+            },
+            {
+              "name": "blog",
+              "included": false
+            },
+            {
+              "name": "site-cart",
+              "included": false
+            },
+            {
+              "name": "other",
+              "included": true
+            }
+          ]
+        },
+      ];
+
+      var ul = document.getElementById("products-list");
+
+/*
+      for (var i = 0; i < products.length; i++){
+        var value = products[i].name;
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(value));
+        ul.appendChild(li);
       }
+*/
 
-      function Down(){
-        var old_menu_element = document.querySelector(".nav li:nth-child(" + (position + 1) + "n)")
-        old_menu_element.classList.remove("active");
 
-        position += 1;
-        document.getElementById("up").disabled = false;
+var ulFilters = document.getElementById("filters-list");
 
-        if(position == elements.length - 1) {
-          document.getElementById("down").disabled = true;
-          elements[position].scrollIntoView();
-          ChangeMenuPosition(position + 1);
-          return;
-         }
+var templateProductCategories = products[0].categories || {};
 
-        elements[position].scrollIntoView()
-        ChangeMenuPosition(position + 1);
+for (var i = 0; i < templateProductCategories.length; i++){
+
+  var name = templateProductCategories[i].name;
+
+  var li = document.createElement("li");
+
+  var input = document.createElement("input");
+  input.type = "checkbox";
+  input.value = name;
+
+  var lable = document.createElement("lable");
+  lable.textContent = name;
+
+  li.appendChild(input);
+  li.appendChild(lable);
+  ulFilters.appendChild(li);
+
+}
+
+var checkedCategories = []; // add listener on add -- rerender ul products
+
+(function(){
+  var inputs = ulFilters.getElementsByTagName('input');
+  for(var i = 0; i < inputs.length; i++){
+    inputs[i].addEventListener('change',handler,false);
+  };
+  function handler(e){
+    console.log(e);
+    checkedCategories.push(e.target.value);
+    var x = e.target; // Get the link that was clicked
+
+    e.preventDefault();
+  };
+})();
+
+function inCheckedCategories(element){
+  var productCategories = element.categories;
+  var arrayCategories = productCategories.map((e)=>{e.name});
+
+  arrayCategories.indexOf()
+
+  checkedCategories.indexOf()
+
+}
+
+function render(){
+
+	var filteredProducts = products.filter(inCheckedCategories);
+
+console.log(filteredProducts);
+
+      for (var i = 0; i < products.length; i++){
+        var value = products[i].name;
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(value));
+        ul.appendChild(li);
       }
+}
 
-      function ChangeMenuPosition(menuEl){
-        var new_menu_element = document.querySelector(".nav li:nth-child(" + menuEl + "n)")
-        new_menu_element.className += "active"
+
+
+      var checkboxes = document.getElementsByTagName('input');
+
+      for (var i=0; i < checkboxes.length; i++)  {
+          if (checkboxes[i].type == 'checkbox')   {
+                checkboxes[i].checked = false;
+              }
       }
     </script>
-
-
-
-
-<section class="view" id="portfolio" style="height: 100vh; padding-top: 45px;">
-
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Портфолио</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-
-</section>
-
-<section class="view" id="skills" style="height: 100vh; padding-top: 45px;">
-
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Навыки или что я умею</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-</section>
-
-<section class="view" id="samples" style="height: 100vh;  padding-top: 45px;">
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Примеры работ</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-</section>
-
-<section class="view" id="contacts" style="height: 100vh;  padding-top: 45px;">
-    <div class="container">
-
-      <div class="starter-template">
-        <h1>Контакты</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      </div>
-
-    </div><!-- /.container -->
-</section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="resources/dist/js/bootstrap.min.js"></script>
     <script src="resources/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./resources/main.js"></script>
+    <script src="./resources/calc.js"></script>
   </body>
 </html>
