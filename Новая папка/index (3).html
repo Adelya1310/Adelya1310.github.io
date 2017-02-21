@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lesson3</title>
+	<style type=text/css>
+		.right {
+			background-color: #ddd;
+			float: right;
+			width: 30%;
+			height: 100vh;
+		}
+		.left {
+			width: 70%;
+			float: left;
+			height: 100vh;
+		}
+		.count {
+			width: 15px;
+		}
+		.result {
+			position: relative;
+			top: 50px;
+			left: 100px
+		}
+	</style>
+</head>
+<body>
+
+	<div class="left">
+		<button class="minus" id="minus">-</button>
+		<input type="text" id="orderCount" class="count" value="0">
+		<button class="plus" id="plus">+</button>
+		<div class="result" id="result"></div>
+	</div>
+
+        <div class="right" id="companies">
+		<input type="text" id="name" placeholder="название">
+		<input type="text" id="price" placeholder="цена">
+                <span><button id="add">Добавить</button></span>
+                <span style="margin-top: 10px; margin-bottom: 2px;display: block;">Продукт / Цена:</span>
+                <div id="divTable"></div>
+        </div>
+
+	<script src="main.js"></script>
+</body>
+</html>
