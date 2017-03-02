@@ -35,11 +35,6 @@ window.onscroll = function(){
   if ((win > fromTopToButtonHeightSection[2]) && (win < fromTopToButtonHeightSection[3])){
     changeViewAndState(3);
   }
-  if ((win > fromTopToButtonHeightSection[3]) && (win < fromTopToButtonHeightSection[4])){
-    changeViewAndState(4);
-  }
-
-
 }
 
 function changeViewAndState(position){
@@ -78,7 +73,7 @@ function showNavigationButton(currentPosition){
       up.disabled = true;
       down.disabled = false;
       break;
-    case 4:
+    case 3:
       up.disabled = false;
       down.disabled = true;
       break;
