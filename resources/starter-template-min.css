@@ -41,6 +41,9 @@ input[type=number]{
 li {
 	  list-style-type: none;
 }
+.mini {
+	clear: both;
+}
 
 /* секции */
 section {/*
@@ -69,7 +72,7 @@ section#skills {
 }
 /* кнопочки фильтров*/
 #filters-list {
-	padding-left: 120px;
+	padding-left: 75px;
 }
 #filters-list li {
 	padding-top: 3px;
@@ -95,7 +98,7 @@ section#skills {
 }
 #order {
 	padding-top: 12px;
-	padding-left: 35px !important;
+	padding-left: 70px !important;;
 }
 #make-order {
 	border-color: #ccc;
@@ -111,6 +114,7 @@ section#skills {
 /* список филтрованных продуктов */
 .preorder {
 	float: right;
+	padding-right: 20px;
 }
 #products-list li{
 	text-align: start;
@@ -135,7 +139,7 @@ button:focus {outline:0 !important; display: none;}
 
 .products {
 	padding-top: 12px;
-	padding-left: 100px !important;
+	padding-left: 50px !important;
 }
 #products-list li {
 	font-size: 14px;
